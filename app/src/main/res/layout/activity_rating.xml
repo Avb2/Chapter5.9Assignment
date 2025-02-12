@@ -11,47 +11,81 @@
         android:id="@+id/typeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="185dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="196dp"
+        android:layout_marginBottom="18dp"
         android:text="Type"
-        tools:layout_editor_absoluteX="185dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/nameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="266dp"
+        android:layout_marginEnd="274dp"
+        android:layout_marginBottom="23dp"
         android:text="Name"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="266dp" />
+        app:layout_constraintBottom_toTopOf="@+id/nameEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="464dp" />
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="86dp"
+        app:layout_constraintBottom_toTopOf="@+id/ratingSaveButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingLabel" />
 
     <TextView
         android:id="@+id/ratingLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="185dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="186dp"
         android:text="Rating"
-        tools:layout_editor_absoluteX="185dp"
-        tools:layout_editor_absoluteY="418dp" />
+        app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
 
     <EditText
         android:id="@+id/nameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="101dp"
         android:ems="10"
         android:inputType="text"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="308dp" />
+        app:layout_constraintBottom_toTopOf="@+id/ratingLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameLabel" />
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="0dp"
         android:layout_height="139dp"
-        tools:layout_editor_absoluteX="149dp"
-        tools:layout_editor_absoluteY="53dp">
+        android:layout_marginStart="149dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginBottom="116dp"
+        app:layout_constraintBottom_toTopOf="@+id/nameEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/typeLabel">
 
         <RadioButton
             android:id="@+id/entreeRadio"
@@ -76,8 +110,14 @@
         android:id="@+id/ratingSaveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="89dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="74dp"
         android:text="Save"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="609dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
