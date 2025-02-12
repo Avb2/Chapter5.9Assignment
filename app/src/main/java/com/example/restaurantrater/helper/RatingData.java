@@ -12,7 +12,10 @@ public class RatingData {
     private SQLiteDatabase db;
     private RatingDb ratingDb;
 
-    public RatingData(Context context){
+    String restaurantName;
+    String address;
+
+    public RatingData(Context context, String restaurantName, String address){
         this.ratingDb = new RatingDb(context);
     }
 
@@ -36,5 +39,10 @@ public class RatingData {
             this.db.insert("ratings", null, vals);
         } catch (Exception e) {
         }
+    }
+
+
+    public void getFK(){
+        this.db.execSQL("SELECT restaurantid FROM restaurants WHERE name = ? AND address = ?", new Object[] {this.restaurantName, this.address});
     }
 }

@@ -98,8 +98,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void changeScreen(){
+    public void changeScreen(String name, String address){
         Intent intent = new Intent(MainActivity.this, RatingActivity.class);
+        intent.putExtra("restaurantName", name);
+        intent.putExtra("address", address);
         startActivity(intent);
     }
 
