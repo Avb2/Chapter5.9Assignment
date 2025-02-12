@@ -2,6 +2,7 @@ package com.example.restaurantrater.helper;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -29,11 +30,17 @@ public class RatingData {
 
 
     public void insertVals(RatingModel ratingModel){
+        int foreignKey = -1;
+        try {
+            foreignKey = getFK(this.restaurantName, this.address);
+        } catch (Exception e) {}
+
         ContentValues vals = new ContentValues();
 
         vals.put("name", ratingModel.getName());
         vals.put("type", ratingModel.getType());
         vals.put("rating", ratingModel.getRating());
+        vals.put("restaurantid", foreignKey);
 
         try {
             this.db.insert("ratings", null, vals);
@@ -42,7 +49,17 @@ public class RatingData {
     }
 
 
-    public void getFK(){
-        this.db.execSQL("SELECT restaurantid FROM restaurants WHERE name = ? AND address = ?", new Object[] {this.restaurantName, this.address});
+    public int getFK(String restaurantName, String address) throws SQLException {
+        int restaurantId = -1;
+
+        Cursor cursor = this.db.rawQuery("SELECT restaurantid FROM restaurants WHERE name = ? AND address = ?",
+                new String[]{restaurantName, address});
+
+        if (cursor.moveToFirst()) {
+            restaurantId = cursor.getInt(0);
+        }
+
+        cursor.close();
+        return restaurantId;
     }
 }

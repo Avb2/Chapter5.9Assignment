@@ -67,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
                 EditText zipcodeText = findViewById(R.id.zipcodeEditText);
                 EditText stateText = findViewById(R.id.stateEditText);
 
+                /// Values
+                String name = nameText.getText().toString();
+                String address = addressText.getText().toString();
+
                 /// Model
                 int zipcode = 0;
                 if (!zipcodeText.getText().toString().isEmpty()){
@@ -89,14 +93,10 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception e) {
 
                 }
-
-                changeScreen();
-
-
+                changeScreen(name, address);
             }
         });
     }
-
 
     public void changeScreen(String name, String address){
         Intent intent = new Intent(MainActivity.this, RatingActivity.class);
@@ -104,6 +104,4 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("address", address);
         startActivity(intent);
     }
-
-
 }
