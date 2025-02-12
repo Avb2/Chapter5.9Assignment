@@ -1,4 +1,4 @@
-package com.example.restaurantrater;
+package com.example.restaurantrater.dbs;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

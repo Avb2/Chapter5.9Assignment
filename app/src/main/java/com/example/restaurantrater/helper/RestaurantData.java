@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.restaurantrater.RestaurantDb;
+import com.example.restaurantrater.dbs.RestaurantDb;
 import com.example.restaurantrater.models.RestaurantModel;
 
 public class RestaurantData {

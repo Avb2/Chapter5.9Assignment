@@ -1,5 +1,6 @@
 package com.example.restaurantrater;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        saveButton();
         clearButton();
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -87,8 +90,18 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
+                changeScreen();
+
+
             }
         });
     }
+
+
+    public void changeScreen(){
+        Intent intent = new Intent(MainActivity.this, RatingActivity.class);
+        startActivity(intent);
+    }
+
 
 }
