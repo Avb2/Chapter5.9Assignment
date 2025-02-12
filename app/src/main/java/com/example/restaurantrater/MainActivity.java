@@ -11,6 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.restaurantrater.helper.RestaurantData;
 import com.example.restaurantrater.models.RestaurantModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -76,7 +77,16 @@ public class MainActivity extends AppCompatActivity {
                         zipcode
                 );
 
-                ///
+                /// Create / input data in restaurant db
+                try {
+                    RestaurantData restaurantData = new RestaurantData(MainActivity.this);
+                    restaurantData.open();
+                    restaurantData.insertVals(restaurantModel);
+                    restaurantData.close();
+                } catch (Exception e) {
+
+                }
+
             }
         });
     }

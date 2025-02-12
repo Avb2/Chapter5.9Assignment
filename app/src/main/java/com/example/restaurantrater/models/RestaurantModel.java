@@ -15,4 +15,24 @@ public class RestaurantModel {
         this.state = state;
         this.zipcode = zipcode;
     }
+
+    public int getZipcode() {
+        return zipcode;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getState() {
+        return state;
+    }
 }
