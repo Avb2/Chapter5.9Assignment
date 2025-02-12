@@ -1,5 +1,7 @@
 package com.example.restaurantrater;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +11,7 @@ import android.widget.RadioGroup;
 import android.widget.RatingBar;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -26,6 +29,7 @@ public class RatingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rating);
 
         saveRatingButton();
+        backButton();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -84,7 +88,41 @@ public class RatingActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+
+                nameEditText.setText("");
+                ratingBar.setRating(0);
+
+                showAlert();
+
+
             }
         });
+    }
+
+    public void showAlert(){
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(RatingActivity.this);
+        alertBuilder.setMessage("Saved successfully!");
+        alertBuilder.setNeutralButton("Close", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+
+        alertBuilder.create();
+        alertBuilder.show();
+    }
+
+
+    public void backButton(){
+        Button button = findViewById(R.id.backButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RatingActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
