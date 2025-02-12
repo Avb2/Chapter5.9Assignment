@@ -3,9 +3,9 @@ package com.example.restaurantrater.models;
 public class RatingModel {
     private String type;
     private String name;
-    private int rating;
+    private double rating;
 
-    public RatingModel(String type, String name, int rating) {
+    public RatingModel(String type, String name, double rating) {
         this.type = type;
         this.name = name;
         this.rating = rating;
@@ -16,7 +16,7 @@ public class RatingModel {
         return name;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 

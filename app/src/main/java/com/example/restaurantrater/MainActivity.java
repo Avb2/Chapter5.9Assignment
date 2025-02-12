@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 /// Text Fields
                 EditText addressText = findViewById(R.id.addressEditText);
-                EditText nameText = findViewById(R.id.nameEditText);
+                EditText nameText = findViewById(R.id.restaurantNameEditText);
                 EditText cityText = findViewById(R.id.cityEditText);
                 EditText zipcodeText = findViewById(R.id.zipcodeEditText);
                 EditText stateText = findViewById(R.id.stateEditText);
@@ -70,12 +70,12 @@ public class MainActivity extends AppCompatActivity {
                 /// Values
                 String name = nameText.getText().toString();
                 String address = addressText.getText().toString();
-
-                /// Model
                 int zipcode = 0;
                 if (!zipcodeText.getText().toString().isEmpty()){
                     zipcode = Integer.parseInt(zipcodeText.getText().toString());
                 }
+
+                /// Model
                 RestaurantModel restaurantModel = new RestaurantModel(
                         nameText.getText().toString(),
                         addressText.getText().toString(),
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     restaurantData.insertVals(restaurantModel);
                     restaurantData.close();
                 } catch (Exception e) {
-
+                    e.printStackTrace();
                 }
                 changeScreen(name, address);
             }

@@ -5,15 +5,15 @@ import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.restaurantrater.dbs.RestaurantDb;
+import com.example.restaurantrater.dbs.DbHelper;
 import com.example.restaurantrater.models.RestaurantModel;
 
 public class RestaurantData {
     private SQLiteDatabase db;
-    private RestaurantDb restaurantDb;
+    private DbHelper restaurantDb;
 
     public RestaurantData(Context context) {
-        this.restaurantDb = new RestaurantDb(context);
+        this.restaurantDb = new DbHelper(context);
     }
 
 
@@ -38,7 +38,7 @@ public class RestaurantData {
         try {
             this.db.insert("restaurants",null,  vals);
         } catch (Exception e) {
-            System.out.println("Error inputting values");
+            e.printStackTrace();
         }
     }
 }

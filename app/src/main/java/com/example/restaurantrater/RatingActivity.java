@@ -48,7 +48,7 @@ public class RatingActivity extends AppCompatActivity {
 
                 /// Field Values
                 String name = nameEditText.getText().toString();
-                int rating = ratingBar.getNumStars();
+                double rating = Double.parseDouble(String.valueOf(ratingBar.getRating()));
 
                 /// Radio buttons
                 RadioButton entreeRadio = findViewById(R.id.entreeRadio);
@@ -82,6 +82,7 @@ public class RatingActivity extends AppCompatActivity {
                     ratingData.insertVals(ratingModel);
                     ratingData.close();
                 } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });

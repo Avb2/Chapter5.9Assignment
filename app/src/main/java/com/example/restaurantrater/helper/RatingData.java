@@ -6,18 +6,20 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.restaurantrater.dbs.RatingDb;
+import com.example.restaurantrater.dbs.DbHelper;
 import com.example.restaurantrater.models.RatingModel;
 
 public class RatingData {
     private SQLiteDatabase db;
-    private RatingDb ratingDb;
+    private DbHelper ratingDb;
 
     String restaurantName;
     String address;
 
     public RatingData(Context context, String restaurantName, String address){
-        this.ratingDb = new RatingDb(context);
+        this.ratingDb = new DbHelper(context);
+        this.restaurantName = restaurantName;
+        this.address = address;
     }
 
     public void open() throws SQLException {
@@ -60,6 +62,8 @@ public class RatingData {
         }
 
         cursor.close();
+
+        System.out.println(restaurantId);
         return restaurantId;
     }
 }
